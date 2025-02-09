@@ -1,0 +1,647 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #000;
+	cursor: none;
+    font-size: 14px;
+    line-height: 1.75;
+	color:#fff;
+	overflow-x: hidden;
+
+   
+}
+
+#image-container {
+    position: absolute;
+    pointer-events: none;
+}
+
+#cursor-img {
+    width: 44px;
+    height: 76px;
+    position: absolute;
+    pointer-events: none;
+	z-index: 999;
+}
+
+.custom-cursor {
+  position: absolute; /* 确保光标可以随鼠标移动 */
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%); /* 如果需要让光标中心对齐鼠标 */
+  z-index: 999; /* 确保它在最上层 */
+  pointer-events: none; /* 避免鼠标事件影响 */
+}
+
+.bottombox{
+  position: relative; /* 定位上下文 */
+  height: 250px;
+  left: 0%; 
+  width: 70%;
+  
+}
+.pixelbox {
+  position: absolute;
+  left: 0%; 
+  width: 45%; 
+  height: 120px;
+  bottom: 50px;
+  margin: 20px auto; 
+  background-image: url('pic/0.png'); /* 填充图片背景 */
+  background-size: contain; /* 图片适应整个区域 */
+  background-position: bottom; 
+  background-repeat: no-repeat;	
+  z-index: 5;
+}
+.warning-box {
+  position: absolute;
+  /*padding: 20px;*/
+  background-color: #000; /* 黑色背景 */
+  color: #fff; /* 白色文字 */
+  border: 2px solid #e3c252; /*边框颜色 */
+  /*border-radius: 8px;  圆角 */
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 50px auto;
+  left: 50%;
+  width: 400px; 
+  height: auto; /* 自动适配内容高度 */
+  bottom: 0;
+  z-index: 0;
+  box-sizing: border-box; 
+  clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 0 30px);
+}
+
+.warning-box span {
+  font-size: 25px; /* 放大字体 */
+  font-weight: 700; /* 加粗字体 */
+  color: #fd3b39; /* 可选：设置颜色 */
+}
+
+.warning-box::before {
+  content: ""; 
+  display: block;
+  height: 28px;
+  width: 400px;
+  top: 0px; 
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #e3c252,
+    #e3c252 10px,
+    #000 10px,
+    #000 20px
+  );
+}
+
+.warning-box:hover {
+  transform: scale(1.1); /* 鼠标悬停放大效果 */
+  }
+
+.polygon-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 每行 5 个 */
+  grid-gap: 5px; /* 每个多边形之间的间距 */
+  width: 30%; 
+  
+  /*max-width: 800px; 限制总宽度 */
+  /* margin: 0 auto; 居中显示 */
+}
+
+/* 多边形样式 */
+.polygon {
+  width: 160px;
+  height: 250px;
+  background: #e3c252; 
+  color: #fff;  
+  border: 4px solid #e3c252; 
+  overflow: visible;
+  position: relative; 
+  z-index: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 87.5%, 80% 100%, 0 100%);
+  text-align: center; 
+}
+
+
+
+.polygon::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #fff;
+	background-image: url('pic/test.jpg'); /* 填充图片背景 */
+	background-size: contain; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+
+.polygon:hover {
+  transform: scale(1.1); /* 鼠标悬停放大效果 */
+  }
+
+  
+.divider {
+  width: 160px; /* 设置矩形宽度 */
+  height: 33px; /* 设置矩形高度 */
+  background-color: #000; /* 填充背景颜色 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: flex-start; /* 垂直向上对齐 */
+  text-align: center; /* 文本水平居中 */
+  box-sizing: border-box; /* 确保 padding 不会影响容器大小 */
+  color: #f5e492;
+  font-size: 27px;
+  line-height: 27px; /* 设置行高与字体大小一致 */
+  padding-top: 2px; 
+  overflow: hidden;
+}
+
+.warning-bar1 {
+  left: 0%; /* 线条起点为屏幕的 20% */
+  width: 70%; 
+  height: 33px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #e3c252,
+    #e3c252 10px,
+    #000 10px,
+    #000 20px
+  );
+  margin-top: 22px ;
+  margin-bottom: 35px ;
+}
+
+
+.logo {
+  width:110px; /* 设置矩形宽度 */
+  height: 110px;
+  background-color: #fff;
+  background-image: url('pic/logo.jpg'); /* 填充图片背景 */
+  background-size: contain; /* 图片适应整个区域 */
+  background-position: bottom; /* 图片居中 */
+  background-repeat: no-repeat;	  
+  position: fixed; 
+  top: 15px; 
+  right: 15px;
+  z-index:100;
+}
+.aboutme {
+  width:110px; /* 设置矩形宽度 */
+  height: auto;  
+  position: fixed; 
+  top: 130px; 
+  right: 15px;
+  color:#fff;
+  z-index:100;
+}
+.aboutme .highlight {
+  font-size: 25px; /* 放大字体 */
+  font-weight: 700; /* 加粗字体 */
+  color:#fff; /* 可选：设置颜色 */
+}
+.my-link {
+    color: #fff;
+	text-decoration: none;
+}
+
+.my-link:visited {
+    color: #e3c252;
+}
+
+.my-link:hover {
+	text-decoration: underline;
+}
+ 
+
+.vertical-line {
+  width: 2px; /* 分割线的宽度 */
+  height: 100vh; /* 高度设置为视口高度，表示页面的高度 */
+  background-color: #e3c252; /* 分割线的颜色 */
+  position: absolute;
+  top: 0;
+  left: 70%; 
+  position: fixed;
+  transform: translateX(-70%);
+}
+#vertical-line-2 {
+  width: 2px; /* 分割线的宽度 */
+  height: 100vh; /* 高度设置为视口高度，表示页面的高度 */
+  background-color: #e3c252; /* 分割线的颜色 */
+  position: absolute;
+  top: 0;
+  left: 89%; 
+  position: fixed;
+  transform: translateX(-89%);
+}
+.container {
+  position: relative; /* 定位上下文 */
+  height: 100%;
+}
+.branchp {
+  position: absolute;
+  left: 70%; /* 线条起点为屏幕的 20% */
+  width: 10%; 
+  height: 120px;
+  bottom: 710px;
+  background-image: url('pic/branchp.png'); /* 填充图片背景 */
+  background-size: contain; /* 图片适应整个区域 */
+  background-position: center; /* 图片居中 */
+  background-repeat: no-repeat;	
+  
+}
+
+.branchp:hover {
+  transform: scale(1.1); /* 鼠标悬停放大效果 */
+}
+
+.languagebox {
+  position: absolute;
+  left: 79.5%; 
+  height: 120px;
+  bottom: 715px;
+  font-size:19px;
+}
+
+.choosingbox{
+  position: absolute;
+  left: 72%; 
+  height: 180px;
+  bottom: 23%;
+  font-size:20px;
+	
+}
+.horizontal-rectangle {
+  position: absolute; /* 相对于容器定位 */
+  left: 70%; 
+  width: 19%; 
+  height: 33px;
+  bottom: 200px; 
+  background: repeating-linear-gradient(
+    -45deg,
+    #f5e492,
+    #f5e492 10px,
+    #000 10px,
+    #000 20px
+  );
+}
+
+.horizontal-box {
+  position: absolute; /* 绝对定位 */
+  bottom: 620px; /* 距离容器底部 50px */
+  left: 70.7%; 
+  width: 17.5%;
+  height:70px;
+  z-index: 3;
+  box-sizing: border-box; 
+  background:#000;
+  clip-path: polygon(25px 0, 100% 0, 100% 100%, 0 100%, 0 25px); 
+  border: 3px solid #e3c252;
+  text-align: center;
+  color:#e3c252;  
+  font-size: 40px;
+  line-height: 40px; /* 设置行高与字体大小一致 */
+  padding: 0; /* 移除内边距 */
+  overflow: hidden;
+}
+
+.horizontal-box:before {
+  content: ""; 
+  display: block;
+  height: 20px;
+  width: 240px;
+  top: 0px; 
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #e3c252,
+    #e3c252 10px,
+    #000 10px,
+    #000 20px
+  );
+  clip-path: polygon(20px 0, 50% 0, 45% 100%, 0 100%);
+}
+
+.horizontal-box:hover {
+  transform: scale(1.05); /* 鼠标悬停放大效果 */
+  }
+
+#polygon-1::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/1.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+
+#polygon-2::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/2.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+
+
+#polygon-3::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/3.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+
+#polygon-4::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/4.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; 
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+#polygon-5::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/5.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+#polygon-6::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/6.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+#polygon-7::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/7.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+#polygon-8::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/8.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+#polygon-9::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/9.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+#polygon-10::before {
+    content: '';
+	display: block;
+    position: absolute;
+	width: 160px;
+    height: 212.5px;
+    top: 37.5px; 
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+	background-image: url('pic/10.png'); /* 填充图片背景 */
+	background-size: cover; /* 图片适应整个区域 */
+	background-position: bottom; /* 图片居中 */
+    background-repeat: no-repeat;	
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%); /* 和主元素一致 */
+    z-index: -1; 
+}
+
+.polygon-container2 {
+  position: absolute; /* 绝对定位 */
+  bottom: 270px; /* 距离容器底部 50px */
+  left: 71%; 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-gap: 10px; 
+  width: 10%; 
+  
+  /*max-width: 800px; 限制总宽度 */
+  /* margin: 0 auto; 居中显示 */
+}
+.polygon-2 {
+  width: 96px;
+  height: 150px;
+  background: #efeea2; 
+  color: #fff;  
+  border: 4px solid #efeea2; 
+  overflow: visible;
+  position: relative; 
+  z-index: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 87.5%, 80% 100%, 0 100%);
+  text-align: center; 
+}
+.polygon-2:hover {
+  transform: scale(1.1); /* 鼠标悬停放大效果 */
+  }
+  
+.divider2 {
+  color: #efeea2;
+  font-size: 20px;
+  display: block;
+  position: absolute;
+  width: 96px;
+  height: 120px;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  background-image: url('pic/11.png');
+  background-size: 57px 74px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 78% 100%, 0 100%);
+  z-index: -1;
+}
+
+
+
+
+
+#polygon-12 {
+	background-image: url('pic/12.png'); 
+	background-size: 57px 80.6px;  
+} 
+#polygon-13 {
+    content: "Manager\A PP";
+	line-height:24px;
+	font-size: 20px;
+	background-image: url('pic/13.png'); 
+	background-position: 30 30;
+	
+} 
+
+#polygon-13:hover {
+  animation: moveBackground 1.5s 1;
+}
+
+.boxing {
+  display: flex;
+  width: 96px; /* 设置矩形宽度 */
+  height: 27px; /* 设置矩形高度 */
+  background-color: #000; /* 填充背景颜色 */
+  justify-content: center; /* 水平居中 */
+  align-items: flex-start; /* 垂直向上对齐 */
+  text-align: center; /* 文本水平居中 */
+  box-sizing: border-box; /* 确保 padding 不会影响容器大小 */
+  color: #efeea2;
+  font-size: 25px;
+  line-height: 25px; /* 设置行高与字体大小一致 */
+  padding: 0; /* 移除内边距 */
+  overflow: hidden;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 30px 30px;
+  }
+  
+  25% {
+    background-position: 100px 0px;
+  }
+  50% {
+    background-position: -100px 0px;
+  }
+  
+  100% {
+    background-position: -100px 0px;
+  }
+   
+ }
+
+.documents{
+	color: #e3c252;
+	text-decoration: none;
+	
+}
+
+
+
+.text-button{
+	display:inline-block;
+	color: #fff;
+	text-decoration: none;
+}
+
+.text-button:hover{
+	color: #fd3b39;
+	cursor: pointer;
+
+}

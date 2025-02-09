@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <div id="image-container">
+        <img src="default-cursor.png" id="cursor-img" alt="Custom Cursor">
+    </div>  
+	 <header>
+  </header>
+   <main>
+
+   <input type="text" id="search-input" placeholder="输入员工关键词检索" />
+   <div class="labels">
+   <label class="filter-button" data-filter="一般图" style="cursor: none;">一般图</label>
+   <label class="filter-button" data-filter="设定图" style="cursor: none;">设定图</label>
+   <label class="filter-button" data-filter="摸鱼" style="cursor: none;">摸鱼</label>
+   <label class="filter-button" data-filter="IF" style="cursor: none;">IF</label>
+   <label class="filter-button" data-filter="image" style="cursor: none;">全部</label>
+   
+   </div>
+  <div id="gallery" class="gallery">
+    <img src="1.jpg" class="image 一般图" alt="图1" data-tags="邦邦"/>
+    <img src="2.jpg" class="image 一般图" alt="图2" data-tags="pp PP 狂攻"/>
+    <img src="3.jpg" class="image 一般图" alt="图3" data-tags="pp PP 狂攻 美1 康纳 天然黑 邦邦 酷哥 女同 霍斯 光头"/>
+    <img src="4.jpg" class="image 一般图" alt="图4" data-tags="pp PP 康纳 天然黑"/>
+	<img src="5.jpg" class="image IF" alt="图5" data-tags="美1"/>
+    <img src="6.jpg" class="image 一般图" alt="图6" data-tags="康纳"/>
+    <img src="7.jpg" class="image 一般图" alt="图7" data-tags="康纳"/>
+    <img src="8.jpg" class="image 一般图" alt="图8" data-tags="pp PP 狂攻 美1 康纳 天然黑 邦邦 酷哥 女同 霍斯 光头"/>
+	<img src="9.jpg" class="image 一般图" alt="图9" data-tags="pp PP 狂攻"/>
+	<img src="10.jpg" class="image 一般图" alt="图10" data-tags="美1 邦邦"/>
+    <img src="11.jpg" class="image 一般图" alt="图11" data-tags="pp PP 美1 天然黑"/>
+    <img src="12.jpg" class="image IF" alt="图12" data-tags="康纳 天然黑 邦邦"/>
+	<img src="13.jpg" class="image 一般图" alt="图13" data-tags="狂攻"/>
+    <img src="14.jpg" class="image 一般图" alt="图14" data-tags="pp PP 天然黑 康纳"/>
+    <img src="15.jpg" class="image 一般图" alt="图15" data-tags=" 天然黑 邦邦"/>
+	<img src="16.jpg" class="image 摸鱼" alt="图16" data-tags="狂攻 邦邦 女同"/>
+    <img src="17.jpg" class="image 一般图" alt="图17" data-tags="美1 狂攻 天然黑 康纳 pp PP 邦邦"/>
+    <img src="18.jpg" class="image 设定图" alt="图18" data-tags=" 邦邦"/>
+    <img src="19.jpg" class="image IF" alt="图19" data-tags="康纳 蓝纳"/>
+    <img src="20.jpg" class="image IF" alt="图20" data-tags="康纳 蓝纳"/>
+    <img src="21.jpg" class="image IF" alt="图21" data-tags=" 康纳 蓝纳 光头"/>
+
+  </div>
+
+  <!-- 大图弹窗 -->
+  <div class="lightbox hidden" id="lightbox">
+    <span id="close">&times;</span>
+    <img id="lightbox-img" src="">
+  </div>
+   <script src="gallery.js"></script>
+
+  
+	<div class="vertical-line"></div>
+	<div id="vertical-line-2" class="vertical-line"></div>
+	<div class="logo"></div>
+	<div class="aboutme">- The Creator -<span class="highlight">PP</span><br>twitter:<br>
+	<a href="https://x.com/lv999PPbunny" class="my-link" title="点击看pp蓝鸟主页" target="_blank" rel="noopener noreferrer">@lv999ppbunny</a></div>
+    <div class="horizontal-rectangle"></div>
+	<div id="horizontal-rectangle2" class="horizontal-rectangle"></div>
+	<a  href="../index.html" style="cursor: none;"><div class="branchp"></div></a>
+	 <div id="horizontal-box1" class="horizontal-box"></div>
+	 
+	 </div>
+	</main>
+</body>
+</html>
